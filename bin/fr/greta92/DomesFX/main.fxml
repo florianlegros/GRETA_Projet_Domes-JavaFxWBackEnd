@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<TabPane tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.greta92.DomesFX.MainController">
+   <tabs>
+      <Tab text="Articles">
+         <content>
+            <AnchorPane prefHeight="400.0" prefWidth="600.0">
+            	<children>
+            		<MenuBar AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            			<menus>
+            				<Menu mnemonicParsing="false" text="Articles">
+            					<items>
+            						<MenuItem fx:id="menuArticlesAdd" mnemonicParsing="false" text="ajouter" />
+            						<MenuItem fx:id="menuArticlesClose" mnemonicParsing="false" text="Close" />
+            					</items>
+            				</Menu>
+            			</menus>
+            		</MenuBar>
+            		<SplitPane dividerPositions="0.29797979797979796" layoutY="28.0" prefHeight="162.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+            			<items>
+            				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            					<children>
+            						<ListView fx:id="Articleliste" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="-1.0" />
+            					</children>
+            				</AnchorPane>
+            				<AnchorPane fx:id="articleform" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            					<children>
+            						<VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            							<children>
+            								<GridPane hgap="20.0" vgap="30.0">
+            									<columnConstraints>
+            										<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+            										<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            										<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            									</columnConstraints>
+            									<rowConstraints>
+            										<RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            										<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            										<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            										<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            										<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            									</rowConstraints>
+            									<children>
+            										<Label text="Référence de l'article" />
+            										<TextField fx:id="id_article" disable="true" editable="false" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" />
+            
+            										<Label text="Nom de l'article" GridPane.rowIndex="1" />
+            										<TextField fx:id="nom_article" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="1" />
+            
+            										<Label text="Prix" GridPane.rowIndex="2" />
+            										<TextField fx:id="prix_article" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="2" />
+            
+            										<Label prefWidth="75.0" text="Description" GridPane.rowIndex="3" GridPane.rowSpan="2" />
+            										<TextArea fx:id="description_article" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="3" GridPane.rowSpan="2" />
+            
+            										<Label text="Categorie" GridPane.rowIndex="5" />
+            										<ChoiceBox fx:id="categorie_article" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="5"></ChoiceBox>
+                                          <Label text="Race" GridPane.rowIndex="6" />
+                                          <TextField fx:id="race_article" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="6" />
+                                          <Label prefWidth="75.0" text="Image" GridPane.rowIndex="7" />
+                                          <TextArea fx:id="image_article" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="7" />
+            									</children>
+            								</GridPane>
+            								<HBox fx:id="formedit_article" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+            									<children>
+            										<Button fx:id="btnsupr_article" mnemonicParsing="false" text="Supprimer" />
+            										<Button fx:id="btnedit_article" mnemonicParsing="false" text="Modifier" />
+            									</children>
+            								</HBox>
+            							</children>
+            							<padding>
+            								<Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+            							</padding>
+            						</VBox>
+            					</children>
+            				</AnchorPane>
+            			</items>
+            		</SplitPane>
+            	</children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Clients">
+         <content>
+            <AnchorPane prefHeight="400.0" prefWidth="600.0">
+               <children>
+                  <MenuBar AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <menus>
+                        <Menu mnemonicParsing="false" text="Clients">
+                           <items>
+                              <MenuItem fx:id="menuClientsCommande" mnemonicParsing="false" text="Commandes" />
+                              <MenuItem fx:id="menuClientsClose" mnemonicParsing="false" text="Close" />
+                           </items>
+                        </Menu>
+                     </menus>
+                  </MenuBar>
+                  <SplitPane dividerPositions="0.29797979797979796" layoutY="28.0" prefHeight="162.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+                     <items>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <ListView fx:id="Clientliste" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="-1.0" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="clientform" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <GridPane hgap="20.0" vgap="30.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label text="Référence client" />
+                                          <TextField fx:id="id_client" disable="true" editable="false" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" />
+                                          <Label text="Username" GridPane.rowIndex="1" />
+                                          <TextField fx:id="username_client" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="1" />
+                                          <Label text="email" GridPane.rowIndex="2" />
+                                          <TextField fx:id="email_client" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="2" />
+                                       </children>
+                                    </GridPane>
+                                    <HBox fx:id="formedit_client" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+                                       <children>
+                                          <Button fx:id="btnsupr_client" mnemonicParsing="false" text="Supprimer" />
+                                          <Button fx:id="btnedit_client" mnemonicParsing="false" text="Modifier" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+   </tabs>
+</TabPane>
