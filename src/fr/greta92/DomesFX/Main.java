@@ -5,6 +5,7 @@ import java.net.URL;
 import dao.ArticleDao;
 import dao.CommandeDao;
 import dao.ConnectBd;
+import dao.EmployeeDao;
 import dao.UserDao;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -14,8 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-	ArticleDao artd;
-	UserDao userd;
+	EmployeeDao empd;
 	
 	@Override
 	public void start(Stage primaryStage) {
@@ -23,18 +23,17 @@ public class Main extends Application {
 //			AnchorPane root = (AnchorPane)FXMLLoader.<AnchorPane>load(getClass().getResource("Main.fxml"));
 
 			// créer un objet URL - chemin vers le fichier XML
-			URL resource = getClass().getResource("main.fxml");
+			URL resource = getClass().getResource("login.fxml");
 			// objet permet de creer objet java à partir de FXML
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(resource);
-			TabPane root = (TabPane) loader.load();
+			AnchorPane root = (AnchorPane) loader.load();
 			
-			MainController controller = (MainController) loader.getController();
+			LoginController controller = (LoginController) loader.getController();
 			
-			controller.setArticleDao(artd);
-			controller.setUserDao(userd);
+			controller.setEmployeeDao(empd);
 			
-			Scene scene = new Scene(root, 1200, 600);
+			Scene scene = new Scene(root, 500, 300);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
@@ -49,12 +48,8 @@ public class Main extends Application {
 		super.init();
 		ConnectBd bd = new ConnectBd();
 		bd.connect();
-		artd = new ArticleDao(bd.getCon());
-		artd.setArticles(artd.trouveTout());
-		userd = new UserDao(bd.getCon());
-		userd.setUsers(userd.trouveTout());
-
-
+		empd = new EmployeeDao(bd.getCon());
+	
 		
 	}
 
